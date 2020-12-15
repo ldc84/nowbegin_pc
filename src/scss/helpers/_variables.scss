@@ -3,49 +3,13 @@
 // font embed :: google webfont
 // @import 'http://fonts.googleapis.com/earlyaccess/notosanskr.css';
 
-@font-face {
-  font-family: 'Noto Sans';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Noto Sans Light'), local('NotoSans-Light'), url(../fonts/NotoSans-Light.eot);
-  src: url(../fonts/NotoSans-Light.eot?#iefix) format('embedded-opentype'),
-    url(../fonts/NotoSans-Light.woff2) format('woff2'),
-    url(../fonts/NotoSans-Light.woff) format('woff');
-  ;
-}
-
-@font-face {
-  font-family: 'Noto Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Noto Sans Regular'), local('NotoSans-Regular'), url(../fonts/NotoSans-Regular.eot);
-  src: url(../fonts/NotoSans-Regular.eot?#iefix) format('embedded-opentype'),
-    url(../fonts/NotoSans-Regular.woff2) format('woff2'),
-    url(../fonts/NotoSans-Regular.woff) format('woff');
-}
-
-@font-face {
-  font-family: 'Noto Sans';
-  font-style: normal;
-  font-weight: 500;
-  src: local('Noto Sans Medium'), local('NotoSans-Medium'), url(../fonts/NotoSans-Medium.eot);
-  src: url(../fonts/NotoSans-Medium.eot?#iefix) format('embedded-opentype'),
-    url(../fonts/NotoSans-Medium.woff2) format('woff2'),
-    url(../fonts/NotoSans-Medium.woff) format('woff');
-}
-
-@font-face {
-  font-family: 'Noto Sans';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Noto Sans KR Bold'), local('NotoSansKR-Bold'), url(../fonts/NotoSansKR-Bold.eot);
-  src: url(../fonts/NotoSans-Bold.eot?#iefix) format('embedded-opentype'),
-    url(../fonts/NotoSans-Bold.woff2) format('woff2'),
-    url(../fonts/NotoSans-Bold.woff) format('woff');
-}
+// 'Noto Sans KR'
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+// 'Montserrat'
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 // fonts
-$font-main: 'Noto Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$font-main: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 $font-size: 100%;
 
 // colors

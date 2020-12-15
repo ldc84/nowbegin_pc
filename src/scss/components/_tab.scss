@@ -1,0 +1,40 @@
+// tab-type-1
+.tab-type-1 {
+  display:flex;
+  margin-bottom:40px;
+  padding:0 1px;
+  border-bottom:1px solid #ff5500;
+  li {
+    flex:1;
+    a {
+      display:block;
+      height:58px;
+      line-height:58px;
+      margin:0 -1px;
+      color:#9d9d9d;
+      font-size:rem(16);
+      font-weight:500;
+      background-color:#fff;
+      border:1px solid #d7d7d7;
+      border-bottom:none;
+      text-align:center;
+    }
+    &.active {
+      a {
+        position:relative;
+        margin:0 -1px;
+        border-color:#ff5500;
+        &:after {
+          content:'';
+          display:block;
+          position:absolute;
+          bottom:-1px;
+          left:0;
+          right:0;
+          height:1px;
+          background-color:#fff;
+        }
+      }
+    }
+  }
+}

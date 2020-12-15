@@ -1,22 +1,293 @@
-<!-- @@master = /template/master.html {"title":""} -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>Now Begin PC File List</title>
+  <style type="text/css">
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
 
-<!-- @@block = contents -->
-<div id="main">
-  
-  main
+    html {
+      overflow-y: scroll;
+    }
 
-  <div class="single-item">
-    <div>your content</div>
-    <div>your content</div>
-    <div>your content</div>
+    body {
+      color: #666;
+      background-color: #fff;
+      font: 11px/1.5 'Malgun Gothic', Dotum, '돋움', Verdana, sans-serif;
+    }
+
+    a {
+      color: #27e;
+      text-decoration: none;
+    }
+
+    a:focus,
+    a:hover,
+    a:active {
+      text-decoration: underline;
+    }
+
+    .header {
+      padding: .5em;
+    }
+
+    .header h1 {
+      margin-right: 1em;
+      color: #000;
+      font-size: 2em;
+      text-align: center;
+    }
+
+    .header ul {
+      display: inline;
+      font-size: 1.5em;
+      list-style: none;
+    }
+
+    .header ul li {
+      display: inline;
+    }
+
+    .group-title {
+      margin-top: 1em;
+      color: #000;
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    table caption {
+      display: none;
+    }
+
+    table th {
+      color: #333;
+      background-color: #eee;
+    }
+
+    table th,
+    table td {
+      padding: .2em .5em;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    table th,
+    table td.stat,
+    table td.date {
+      text-align: center;
+    }
+
+    table tr.even,
+    table tr td.multi {
+      background-color: #fafafa;
+    }
+
+    table tr.add td {
+      background-color: #fd0;
+    }
+
+    table tr.modify td {
+      background-color: #fffeb4;
+    }
+
+    table tr.hover td {
+      background-color: #eee;
+    }
+
+    table tr.none td {
+      color: #000;
+      background-color: #fc8989;
+    }
+
+    table tr.up td {
+      background-color: #ffe9f5;
+    }
+
+    .section {
+      margin: 0 0 15px;
+    }
+
+    .section .title {
+      margin: 0;
+      padding: 0;
+      color: #000;
+      font-weight: bold;
+      font-size: 100%;
+    }
+
+    body.js .section .title {
+      padding: .5em;
+      border: 1px solid #ccc;
+      background-color: #ddd;
+      cursor: pointer;
+    }
+
+    body.js .section+.section .title {
+      border-top: 0;
+    }
+
+    body.js .section .title .page-count {
+      color: #666;
+      font-weight: normal;
+    }
+
+    body.js .section .content {
+      display: none;
+    }
+
+    .attention {
+      margin-bottom: 20px;
+      padding: 20px 20px 20px 0;
+      color: #000;
+      font-weight: bold;
+      background: rgba(135, 135, 135, 0.3);
+    }
+
+    #sb-body {
+      border: none !important;
+    }
+
+    .state-ico {
+      padding: 0 10px 0 0;
+      line-height: 14px;
+      text-align: right;
+    }
+  </style>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript">
+    (function ($) {
+      $.fn.stat = function (options) {
+        var settings = $.extend({
+            title: 'h2.title',
+            content: 'div.content',
+            files: 'tbody tr',
+            date: 'td.date',
+            index: 0,
+            openAll: false,
+            speed: 'fast'
+          }, options),
+          all_sections = this,
+          header = $('div.header');
+        return this.each(function () {
+          var self = this,
+            $self = $(self),
+            title_text = [],
+            completed = 0;
+          self.section_title = $(settings.title, $self);
+          self.content = $(settings.content, $self);
+          self.files = $(settings.files, $self);
+          self.files.each(function () {
+            var date = $(settings.date, this);
+            date.each(function () {
+              var text = $(this).text();
+              if (text) {
+                completed++;
+              }
+            });
+          });
+          self.files
+            .bind('mouseenter', function () {
+              $(this).addClass('hover');
+            })
+            .bind('mouseleave', function () {
+              $(this).removeClass('hover');
+            });
+          title_text = [self.section_title.text(), ' <span class="page-count">(', completed, '/', self.files.length,
+            ')</span>'
+          ];
+          self.section_title.html(title_text.join(''));
+          self.section_title.bind('click', function () {
+            self.content.slideToggle(settings.speed);
+          });
+          if (settings.openAll || ((settings.index - 1) === all_sections.index(this))) {
+            self.content.css('display', 'block');
+          }
+        });
+      };
+      $(document).ready(function () {
+        $('div.section').stat({
+          openAll: true
+        });
+        $('#total').text($('tbody tr').length);
+        $('tbody tr:even').addClass('even');
+        $('tbody td[rowspan][rowspan!=1]').addClass('multi');
+
+        //link set
+        var link = $('.content .link');
+        link.each(function (idx) {
+          var _this = $(this);
+          var _path = _this.parents('.content').find('.path').eq(0).text();
+          var tag = '<a href="' + _path + _this.text() + '" target="_blank">' + _this.text() + '</a>';
+          _this.html(tag);
+        });
+
+      });
+    }(jQuery));
+  </script>
+</head>
+
+<body class="js">
+  <div class="header">
+    <h1>MLOOK File List</h1>
+  </div>
+  <div class="attention">
+    <ul class="refer">
+      <li>문서형식 선언 : HTML 5</li>
+      <li>meta 정보 : charset="utf-8"</li>
+      <li>crossbrowsing : chrome(static)</li>
+      <li>작업환경 : gulp builder, scss, jquery</li>
+    </ul>
+    <ul class="important">
+      <li><span>개발주의 사항 :</span></li>
+      <li>1. 상단 DOCTYPE선언 삭제하거나 개발관련 코드 넣지 마세요!!. css 제대로 렌더링 안됩니다.</li>
+      <li>2. 그밖의 주의 사항은 별도 첨부합니다.</li>
+    </ul>
   </div>
 
-</div>
-<script>
-  window.addEventListener('load', function(){
-    $(function(){
-      $('.single-item').slick();
-    });
-  });
-</script>
-<!-- @@close -->
+  <div class="section">
+    <h2 class="title">메인</h2>
+    <div class="content">
+      <table>
+        <colgroup>
+          <col width="*" />
+          <col width="23%" />
+          <col width="26%" />
+          <col width="30%" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">2depth</th>
+            <th scope="col">file</th>
+            <th scope="col">date</th>
+            <th scope="col">note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>메인</td>
+            <td class="link">./html/main.html</td>
+            <td class="date">2020-12-15</td>
+            <td>
+              - 각 팝업 확인 가능<br>
+              알림 / 로그인 / 회원가입 / 아디비번 찾기 등
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
+
+</html>

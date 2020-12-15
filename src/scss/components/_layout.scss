@@ -1,6 +1,31 @@
 // CSS Grid layout
+body {
+  &.over-hidden {
+    overflow: hidden;
+  }
+}
 
 // wrap
 #wrap {
-  
+
+  min-width:1400px;
+
+  // main
+  &.main {
+    background-color:#1a1b1f;
+    #header {
+      background-color:transparent;
+      .top-utill {
+        li {
+          &.alert {
+            a {
+              .num {                
+                background-color:#000;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

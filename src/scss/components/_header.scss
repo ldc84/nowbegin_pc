@@ -1,0 +1,120 @@
+// header
+#header {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  height:131px;
+  padding:0 80px 0 80px;
+  background-color:#0d0e10;
+  z-index: 10;
+  .h1-gnb {
+    display:flex;
+    align-items: center;
+    h1 {
+      font-size:0;
+      line-height:0;
+    }
+    #gnb {
+      margin-left:80px;
+      ul {
+        display:flex;
+        li {
+          margin:0 23px;
+          a {
+            color:#fff;
+            font-weight:700;
+            font-size:rem(15);
+          }
+        }
+      }
+    }
+  }
+  .top-utill {
+    display:flex;
+    align-items: center;
+    li {
+      margin-left:25px;
+      a,
+      button {
+        padding:10px;
+      }
+      button {
+        border:none;
+        background:none;
+      }
+      &.alert {
+        a {
+          display:block;
+          position:relative;
+          .num {
+            position:absolute;
+            top:0;
+            right:-4px;
+            min-width:15px;
+            height:15px;
+            line-height:14px;
+            padding:0 3px;
+            color:#fff;
+            font-size:rem(10);
+            font-weight:700;
+            background-color:#ff6700;
+            border-radius: 8px;
+            text-align:center;
+          }
+        }
+      }
+      &.search {
+        position:relative;
+        min-width:43px;
+        height:43px;
+        .in {
+          display:inline-block;
+          width:0;
+          // border:1px solid rgba(255,255,255,0.3);
+          background-color:rgba(255,255,255,0.1);
+          border-radius:20px;
+          opacity:0;
+          overflow: hidden;
+          transition:all .3s ease-in-out;
+          input {
+            width:290px;
+            height:40px;
+            line-height:40px;
+            padding:0 45px 0 35px;
+            color:#fff;
+            font-size:rem(16);
+            border:none;
+            background:none;
+            outline: none;
+          }
+          ::placeholder {
+            color:rgba(255,255,255,0.6);
+          }
+        }
+        button {
+          position: absolute;
+          top:0;
+          right:0;
+          outline: none;
+          cursor: pointer;
+          transition:all .3s ease-in-out;
+        }
+
+        &.active {
+          .in {
+            width:290px;
+            opacity: 1;
+          }
+          button {
+            padding-right:15px;
+          }
+        }
+      }
+    }
+  }
+
+}

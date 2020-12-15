@@ -65,12 +65,6 @@
       .pipe(gulp.dest(imgConfig.build));
   }
 
-  /**************** Fonts task ****************/
-  function font() {
-    return gulp.src(dir.src + 'fonts/**')
-      .pipe(gulp.dest(dir.build + '/fonts'))
-  }
-
   /**************** CSS task ****************/
   const cssConfig = {
     src         : dir.src + 'scss/style.scss',
@@ -130,7 +124,7 @@
   /**************** HTML task ****************/
   const htmlConfig = {
     template : dir.src + 'template/*.html',
-    html : dir.src + 'html/*.html'
+    html : dir.src + 'html/**/*.html'
   }
 
   function html() {
@@ -192,7 +186,7 @@
   }
 
   /**************** exports task ****************/
-  exports.default = gulp.series(clean, font, conf, exports.css, html, js, watch, server);
-  exports.zip = gulp.series(clean, font, conf, exports.css, html, js, buildZip);
-  exports.deploy = gulp.series(clean, font, conf, exports.css, html, js, deploy);
+  exports.default = gulp.series(clean, conf, exports.css, html, js, watch, server);
+  exports.zip = gulp.series(clean, conf, exports.css, html, js, buildZip);
+  exports.deploy = gulp.series(clean, conf, exports.css, html, js, deploy);
 })();
