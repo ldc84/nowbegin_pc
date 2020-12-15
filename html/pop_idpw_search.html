@@ -1,0 +1,98 @@
+<h2>아이디/비밀번호 찾기</h2>
+<div class="layer-contents idpw-search">
+  <ul class="tab-type-1">
+    <li><a href="#idCon">아이디 찾기</a></li>
+    <li><a href="#pwCon">비밀번호 찾기</a></li>
+  </ul>
+  <div class="idpw-con">
+    <!-- id search -->
+    <div id="idCon" style="display:none;">
+      <div>
+        <form action="">
+          <div class="idpw-h-1">
+            <div class="form-input btn-2">
+              <input type="text" placeholder="휴대폰 번호">
+              <button type="button" class="button text-1 border-1 small">인증번호</button>
+            </div>
+            <div class="form-input">
+              <input type="text" placeholder="인증번호 6자리 숫자 입력">
+            </div>
+          </div>
+          <div class="btn-box-1">
+            <a href="" class="button block color-1">다음</a>
+          </div>
+        </form>
+      </div>
+      <!-- 아이디 검색 성공시 -->
+      <div style="display:none;">
+        <div class="id-text-1 idpw-h-1">
+          <p>
+            귀하의 아이디는<br>
+            <strong>NOWBEGIN</strong> 입니다
+          </p>
+        </div>
+        <div class="btn-box-1">
+          <a href="" class="button block color-1 layer-close">확인</a>
+        </div>
+      </div>
+      <!-- //아이디 검색 성공시 -->
+    </div>
+    <!-- //id search -->
+    <!-- pw search -->
+    <div id="pwCon" style="display:none;">
+      <div>
+        <form action="">
+          <div class="idpw-h-1">
+            <div class="form-input btn-2">
+              <input type="text" placeholder="휴대폰 번호">
+              <button type="button" class="button text-1 border-1 small">인증번호</button>
+            </div>
+            <div class="form-input">
+              <input type="text" placeholder="인증번호 6자리 숫자 입력">
+            </div>
+          </div>
+          <div class="btn-box-1">
+            <a href="" class="button block color-1">다음</a>
+          </div>
+        </form>
+      </div>
+      <!-- 비번 신규입력 -->
+      <div style="display:none;">
+        <form action="">
+          <div class="idpw-h-1">
+            <div class="form-input">
+              <input type="password" placeholder="신규비밀번호">
+            </div>
+            <div class="form-input">
+              <input type="password" placeholder="신규비밀번호 확인">
+            </div>
+            <p class="form-text-coment-2">
+              비밀번호는 영문/숫자/특수문자 조합으로  8자리 이상으로 생성
+              해주세요. 기존 사용하시던 비밀번호는 중복 사용이 불가능합니다.
+            </p>
+          </div>
+          <div class="btn-box-1">
+            <a href="" class="button block color-1">완료</a>
+          </div>
+        </form>
+      </div>
+      <!-- //비번 신규입력 -->
+    </div>
+    <!-- //pw search -->
+  </div>
+</div>
+<a href="" class="close">레이어 닫기</a>
+
+<script>
+  $(function(){
+    var url = location.hash;
+    var num = 0;
+    if(url == '#searchID') {
+      $('.tab-type-1 li').eq(0).addClass('active');
+      $('#idCon').show();
+    }else {
+      $('.tab-type-1 li').eq(1).addClass('active');
+      $('#pwCon').show();
+    }
+  });
+</script>

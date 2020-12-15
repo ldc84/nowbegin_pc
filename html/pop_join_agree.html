@@ -1,0 +1,61 @@
+<h2>약관동의</h2>
+<div class="layer-contents join-agree">
+  <div class="total-checkbox">
+    <div class="checkbox">
+      <input type="checkbox" id="pu-total">
+      <label for="pu-total">
+        이용약관, 개인정보 수집 및 이용, 위치정보 이용약관(선택),<br>
+        프로모션 정보 수신(선택)에 모두 동의합니다.
+      </label>
+    </div>
+  </div>
+  <div class="checkbox normal">
+    <input type="checkbox" id="pu-agree1">
+    <label for="pu-agree1">서비스 이용약관 동의<span class="txt-required">(필수)</span></label>
+  </div>
+  <div class="agree-box">
+    약관내용
+  </div>
+  <div class="checkbox normal">
+    <input type="checkbox" id="pu-agree2">
+    <label for="pu-agree2">개인정보 수집 및 이용<span class="txt-required">(필수)</span></label>
+  </div>
+  <div class="agree-box">
+    약관내용
+  </div>
+  <div class="checkbox normal">
+    <input type="checkbox" id="pu-agree3">
+    <label for="pu-agree3">위치서비스 이용동의<span class="txt-required">(선택)</span></label>
+  </div>
+  <div class="agree-box">
+    약관내용
+  </div>
+  <div class="checkbox normal">
+    <input type="checkbox" id="pu-agree4">
+    <label for="pu-agree4">마케팅 정보 수신 및 이용<span class="txt-required">(선택)</span></label>
+  </div>
+  <div class="agree-box">
+    약관내용
+  </div>
+  <div class="btn-box-1">
+    <a href="" class="button block color-1">다음</a>
+  </div>
+</div>
+<a href="" class="close">레이어 닫기</a>
+
+<script>
+  // 필수체크 후 입력폼 이동
+  $(function(){
+    var btn = $('.btn-box-1 .button');
+    var layerWrap = $('.layer-wrap');
+    btn.on('click', function(){
+      if($("#pu-agree1").is(":checked") == true && $("#pu-agree2").is(":checked") == true){
+        layerWrap.empty();
+        layerWrap.load('../html/pop_join_form.html');
+      }else {
+        alert('필수 약관에 동의해주세요!');
+      }
+      return false;
+    });
+  });
+</script>
