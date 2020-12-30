@@ -1,0 +1,78 @@
+<h2>
+  회원 탈퇴 신청에 앞서<br>
+  아래의 사항을 반드시 확인해주세요.
+</h2>
+<div class="layer-contents join-leave">
+  <p class="text-type-3">
+    탈퇴 시 보유 이용권한 및 보유 포인트는 모두 소멸되며,<br>
+    회원 정보와 남은 이용권 기간의 복원은 불가능합니다.
+  </p>
+  <h3 class="title-type-3">쿠폰 유효기간 확인</h3>
+  <div class="tb-data-5">
+    <table>
+      <caption>쿠폰 유효기간 확인 표</caption>
+      <colgroup>
+        <col width="50%">
+        <col width="*">
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">쿠폰정보</th>
+          <th scope="col">유효기간</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>DANCE, 50,000원 할인 쿠폰</td>
+          <td>2020.11.05 ~ 2021.11.05</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3 class="title-type-3">잔여 포인트 확인</h3>
+  <div class="tb-data-5">
+    <table>
+      <caption>잔여 포인트 확인 표</caption>
+      <colgroup>
+        <col width="50%">
+        <col width="*">
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">포인트</th>
+          <th scope="col">유효기간</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>잔여 10,000P</td>
+          <td>2020.11.05 ~ 2021.11.05</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="checkbox">
+    <input type="checkbox" id="pu-agree">
+    <label for="pu-agree">위 내용을 확인했으며, 탈퇴를 진행합니다.</label>
+  </div>
+  <div class="btn-box-1">
+    <a href="" class="button block color-1 btn-pop-leave">탈퇴하기</a>
+  </div>
+</div>
+<a href="" class="close">레이어 닫기</a>
+
+<script>
+  // 필수체크 후 입력폼 이동
+  $(function(){
+    var btn = $('.btn-box-1 .btn-pop-leave');
+    btn.on('click', function(){
+      if($("#pu-agree").is(":checked") == true){
+        alert('탈퇴되었습니다.');
+        $('.layer .layer-wrap .close').trigger('click');
+      }else {
+        alert('약관에 동의해야 탈퇴가 가능합니다.');
+      }
+      return false;
+    });
+  });
+</script>
