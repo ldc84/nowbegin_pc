@@ -1,0 +1,155 @@
+<!-- @@master = /template/master.html {"title":""} -->
+
+<!-- @@block = contents -->
+<div class="contents-box">
+  
+  <h2 class="title-type-2">MYPAGE</h2>
+
+  <!-- mypage-wrap -->
+  <div class="mypage-wrap">
+    <!-- mypage-lnb -->
+    <div class="mypage-lnb">
+      <div class="user">
+        <div class="image"><img src="../images/tmp/@tmp_121_121.png" alt=""></div>
+        <p class="greeting">
+          <span>홍길동</span>님, 안녕하세요
+        </p>
+        <p class="date">
+          만료일
+          <strong>2020.08.10</strong>
+        </p>
+      </div>
+      <ul class="list">
+        <li>
+          <a href="./mypage_user_modify.html">개인정보 수정</a>
+        </li>
+        <li>
+          <a href="./mypage_lecture.html">수강 중인 강의</a>
+        </li>
+        <li>
+          <a href="./mypage_coupon.html">내 쿠폰</a>
+        </li>
+        <li>
+          <a href="./mypage_favorite.html">찜한 강의</a>
+        </li>
+        <li>
+          <a href="./mypage_payment.html">결제 내역</a>
+        </li>
+        <li>
+          <a href="./mypage_1vs1_list.html" class="active">1:1문의</a>
+        </li>
+        <li>
+          <a href="" class="btn-leave">회원탈퇴</a>
+        </li>
+      </ul>
+    </div>
+    <!-- //mypage-lnb -->
+
+    <!-- mypage-contents -->
+    <div class="mypage-contents">
+      <div class="title-box-2">
+        <h3 class="title-type-3">1:1문의</h3>
+        <p class="text-sorting-1">
+          총
+          <strong>[ 0000 ]</strong>
+          건의 문의 내역이 있습니다.
+        </p>
+      </div>
+      <!-- tb-board-list -->
+      <div class="tb-board-list">
+        <table>
+          <caption>1:1문의 목록</caption>
+          <colgroup>
+            <col width="10%">
+            <col width="*">
+            <col width="18%">
+            <col width="12%">
+            <col width="18%">
+          </colgroup>
+          <thead>
+            <tr>
+              <th scope="col">구분</th>
+              <th scope="col">제목</th>
+              <th scope="col">작성일</th>
+              <th scope="col">상태</th>
+              <th scope="col">답변일</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>공지</td>
+              <td><a href="">사용자가 1:1문의 등록 시 입력한 제목이 표기되는 영역입니다.</a></td>
+              <td>2020.11.14.14:00</td>
+              <td>
+                <span class="txt-1">답변대기</span>
+              </td>
+              <td>2020.11.14.14:00</td>
+            </tr>
+            <tr>
+              <td>서비스</td>
+              <td><a href="">사용자가 1:1문의 등록 시 입력한 제목이 표기되는 영역입니다.</a></td>
+              <td>2020.11.14.14:00</td>
+              <td>
+                <span class="txt-2">답변완료</span>
+              </td>
+              <td>2020.11.14.14:00</td>
+            </tr>
+            <tr>
+              <td>서비스</td>
+              <td><a href="">사용자가 1:1문의 등록 시 입력한 제목이 표기되는 영역입니다.</a></td>
+              <td>2020.11.14.14:00</td>
+              <td>
+                <span class="txt-2">답변완료</span>
+              </td>
+              <td>2020.11.14.14:00</td>
+            </tr>
+            <tr>
+              <td>서비스</td>
+              <td><a href="">사용자가 1:1문의 등록 시 입력한 제목이 표기되는 영역입니다.</a></td>
+              <td>2020.11.14.14:00</td>
+              <td>
+                <span class="txt-2">답변완료</span>
+              </td>
+              <td>2020.11.14.14:00</td>
+            </tr>
+            <tr>
+              <td>서비스</td>
+              <td><a href="">사용자가 1:1문의 등록 시 입력한 제목이 표기되는 영역입니다.</a></td>
+              <td>2020.11.14.14:00</td>
+              <td>
+                <span class="txt-2">답변완료</span>
+              </td>
+              <td>2020.11.14.14:00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- //tb-board-list -->
+
+      <div class="btn-box-3 mt-1">
+        <button type="button" class="button color-4 medium btn-1vs1">문의등록</button>
+      </div>
+
+    </div>
+    <!-- //mypage-contents -->
+
+  </div>
+  <!-- //mypage-wrap -->
+
+</div>
+
+<script>
+  window.addEventListener('load', function(){
+    $(function(){
+      var btnWrite = $('.btn-1vs1');
+
+      btnWrite.on('click', function(){
+        layerOpen('./pop_1vs1_write.html', 'layer-lg');
+        return false;
+      });
+
+    });
+  });
+</script>
+
+<!-- @@close -->

@@ -11,7 +11,7 @@
     z-index: 10;
   }
   .layer-wrap {
-    position:absolute;
+    position:fixed;
     top:350px;
     left:50%;
     transform: translateX(-50%);
@@ -46,11 +46,22 @@
           transform: translateX(-50%);
         }
       }
+      &.layer-tit-2 {
+        height:51px;
+        line-height:51px;
+        margin-bottom:15px;
+        font-size:rem(16);
+        font-weight:500;
+        border-bottom:1px solid #d1d1d1;
+      }
     }
     .close {
+      display:block;
       position:absolute;
       top:18px;
       right:16px;
+      width:35px;
+      height:35px;
       padding:10px;
       background:url("../images/common/layer_close.png") no-repeat center center;
       @include fontNone;
@@ -257,10 +268,112 @@
       }
     }
 
-    // alrim
+    // join _ leave
+    .join-leave {
+      width:484px;
+      .title-type-3 {
+        margin:50px 0 15px 0;
+        text-align:left;
+      }
+      .checkbox {
+        margin-top:50px;
+        label {
+          font-size:rem(16);
+          font-weight:500;
+        }
+      }
+      .btn-box-1 {
+        width:440px;
+        margin-left:auto;
+        margin-right:auto;
+      }
+    }
+
+    // alrim _ 기존 단일 알림
     .alrim-wrap {
       padding-top:100px;
       background:url("../images/icon/icon_bell.png") no-repeat center 0;
+    }
+
+    // alrim _ 리스트형식
+    &.layer-alrim {
+      width:400px;
+      padding:0;
+      top:80px;
+      left:auto;
+      right:135px;
+      transform: translateX(0);
+      .layer-contents {
+        width:100%;
+      }
+      .close {
+        top:7px;
+        right:7px;
+      }
+    }
+    .alrim-list-wrap {
+      width:100%;
+      .alrim-box {
+        max-height:294px;
+        overflow-x:hidden;
+        overflow-y:auto;
+        li {
+          position:relative;
+          & + li {
+            border-top:1px solid #f2f2f2;
+          }
+          a {
+            display:block;
+            padding:20px 35px 20px 20px;
+            line-height:1.2;
+            text-align:left;
+            .tit {
+              color:#000;
+              font-size:rem(16);
+              font-weight:500;
+            }
+            .text {
+              margin-top:5px;
+              color:#000;
+              font-size:rem(14);
+              font-weight:300;
+            }
+            .date {
+              margin-top:8px;
+              color:#787878;
+              font-size:rem(12);
+              font-weight:300;
+            }
+          }
+          .del {
+            position:absolute;
+            top:16px;
+            right:0;
+            width:29px;
+            height:29px;
+            padding:10px;
+            border:none;
+            background:url("../images/common/layer_close.png") no-repeat center center;
+            background-size:9px 9px;
+            cursor: pointer;
+            opacity: 0;
+            outline: none;
+            @include fontNone;
+            transition: all .3s ease-in-out;
+          }
+
+          &:hover {
+            a {
+              background-color:#e9e9e9;
+            }
+            .del {
+              right:9px;
+              opacity: 1;
+            }
+          }
+
+        }
+      }
     }
 
     // coupon
@@ -303,6 +416,73 @@
       }
     }
 
+    // review
+    .reivew-wrap {
+      padding:0 55px;
+      text-align:left;
+      .tit {
+        color:#000;
+        font-size:rem(21);
+        font-weight:700;
+        line-height:1.2;
+      }
+      .text {
+        margin-top:20px;
+        color:#000;
+        font-size:rem(15);
+        line-height:1.6;
+      }
+      .photo-slide {
+        margin-top:30px;
+        padding-top:30px;
+        border-top:1px solid #e5e5e5;
+        .slick-slide {
+          text-align:center;
+          outline: none;
+          img {
+            display:inline-block;
+            max-width:100%;
+          }
+        }
+        .slick-arrow {
+          position:absolute;
+          top:0;
+          bottom:0;
+          width:55px;
+          background-color:transparent;
+          border:none;
+          background-repeat: no-repeat;
+          background-position:center center;
+          cursor: pointer;
+          outline: none;
+          @include fontNone;
+          &.slick-prev {
+            left:-55px;
+            background-image:url("../images/icon/btn_arrow02_left.png");
+          }
+          &.slick-next {
+            right:-55px;
+            background-image:url("../images/icon/btn_arrow02_right.png");
+          }
+        }
+      }
+    }
+
+    // 쿠폰조회 및 적용
+    .coupon-list {
+      width:494px;
+      margin:0 auto;
+      h3 {
+        text-align:left;
+      }
+    }
+
+    // 결제완료
+    .payment-wrap {
+      padding-top:100px;
+      background:url("../images/icon/icon_payment.png") no-repeat center 0;
+    }
+
 
     // size
     &.layer-sm {
@@ -319,6 +499,13 @@
         }
       }
     }
+    &.layer-lg {
+      width:604px;
+      padding:75px 0 50px 0;
+      .layer-contents {
+        width:255px;
+      }
+    }
     
   }
   
@@ -330,6 +517,11 @@
       &.move {
         top:150px;
         opacity: 1;
+
+        // alrim
+        &.layer-alrim {
+          top:114px;
+        }
       }
     }
   }

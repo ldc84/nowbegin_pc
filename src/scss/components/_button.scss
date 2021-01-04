@@ -2,7 +2,9 @@
 // box
 .btn-box-1 {
   margin-top:40px;
-  z-index:9;
+  * {
+    vertical-align: middle;
+  }
   > div {
     display:flex;
     justify-content: space-between;
@@ -19,10 +21,20 @@
       }
     }
   }
+  &.type-1 {
+    padding-left:162px;
+  }
 }
 
 .btn-box-2 {
   padding:35px 16px 30px 16px;
+}
+.btn-box-3 {
+  margin-top:20px;
+  text-align:right;
+  &.mt-1 {
+    margin-top:35px;
+  }
 }
 
 // button
@@ -64,6 +76,18 @@ input[type='submit'] {
     color:#fff;
     background-color:#4a4a4a;
   }
+  &.color-3 {
+    color:#000;
+    border:1px solid #c0c0c0;
+  }
+  &.color-4 {
+    color:#000;
+    border:2px solid #000;
+  }
+  &.color-5 {
+    color:#fff;
+    background-color:#000;
+  }
 
   // border
   &.border-1 {
@@ -76,9 +100,54 @@ input[type='submit'] {
   }
 
   // size
+  &.medium {
+    height:51px;
+    line-height:49px;
+    padding:0 80px;
+  }
+
   &.small {
     padding:0 30px;
     font-size:rem(15);
+  }
+  &.small-2 {
+    height:48px;
+    line-height:46px;
+    padding:0 40px;
+    font-size:rem(17);
+    font-weight:500;
+  }
+  &.small-3 {
+    width:111px;
+    height:48px;
+    line-height:46px;
+    padding:0;
+    font-size:rem(15);
+    font-weight:500;
+  }
+  &.xsmall {
+    height:31px;
+    line-height:29px;
+    padding:0 36px;
+    font-size:rem(14);
+  }
+  &.xsmall-2 {
+    height:29px;
+    line-height:27px;
+    padding:0 23px;
+    font-size:rem(13);
+    &.color-4 {
+      border-width:1px;
+    }
+  }
+  &.xsmall-3 {
+    height:37px;
+    line-height:35px;
+    padding:0 16px;
+    font-size:rem(15);
+    &.color-4 {
+      border-width:1px;
+    }
   }
 
   // display
@@ -87,4 +156,22 @@ input[type='submit'] {
     width: 100%;
   }
 
+}
+
+// btn-more
+.btn-more {
+  margin-top:40px;
+  text-align:center;
+  > a {
+    display:inline-block;
+    width:52px;
+    height:52px;
+    background:#ff6700 url("../images/icon/icon_more.png") no-repeat center center;
+    border-radius: 50%;
+    @include fontNone;
+    transition:all .2s ease-in-out;
+    &:hover {
+      transform: scale(1.1) rotate(-90deg);
+    }
+  }
 }

@@ -9,6 +9,7 @@ body {
 #wrap {
 
   min-width:1400px;
+  background-color:#f0f0f0;
 
   // main
   &.main {
@@ -27,5 +28,234 @@ body {
         }
       }
     }
+    #contents {
+      padding-top:0;
+    }
+    #footer {
+      .foot-logo {
+        img {
+          opacity: 0.3;
+        }
+      }
+    }
+  }
+
+  // lecture
+  &.lecture {
+    #header {
+      height:80px;
+      padding-left:26px;
+    }
+    #contents {
+      padding-top:80px;
+    }
+  }
+}
+
+// contents
+#contents {
+  padding-top:131px;
+}
+
+// contents _ default
+.contents-box {
+  width:1400px;
+  margin:0 auto;
+  padding:70px 0;
+  .location-area {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:30px;
+    .location {
+      color:#000;
+      font-size:rem(13);
+      font-weight:300;
+      span {
+        font-weight:400;
+      }
+    }
+  }
+  .contents-inner {
+    padding:20px 22px 20px 22px;
+    border:1px solid #e3e3e3;
+    background-color:#fff;
+    &.type-1 {
+      padding:50px 45px;
+    }
+  }
+}
+
+// lecture
+.lecture-wrap {
+  display: flex;
+  min-width:1400px;
+  height:calc(100vh - 80px);
+  > .lecture-lnb {
+    width:206px;
+    height:100%;
+    background-color:#1a1b1f;
+    .teacher {
+      margin:0 24px 20px 26px;
+      padding:49px 0 25px 0;
+      border-bottom:1px solid #2d2d2d;
+      .image {
+        width:77px;
+        height:77px;
+        border-radius: 50%;
+        overflow: hidden;
+        img {
+          width:100%;
+          object-fit: cover;
+        }
+      }
+      .name {
+        margin:20px 0 0 3px;
+        color:#fff;
+        font-size:rem(18);
+        font-weight:500;
+      }
+      .like {
+        margin:15px 0 0 3px;
+        padding-left:23px;
+        color:#fff;
+        font-size:rem(14);
+        line-height:1.2;
+        background:url("../images/icon/icon_like.png") no-repeat 0 center;
+      }
+    }
+    .lnb-list {
+      li {
+        a {
+          position:relative;
+          display:block;
+          padding:20px 0 20px 64px;
+          color:#fff;
+          font-size:rem(15);
+          font-weight:500;
+          line-height:1.2;
+          &:before {
+            content:'';
+            display:block;
+            position:absolute;
+            top:50%;
+            left:30px;
+            width:19px;
+            height:15px;
+            transform: translateY(-50%);
+            background-repeat: no-repeat;
+            background-position: center center;
+          }
+        }
+        @for $i from 1 to 4 {
+          &:nth-child(#{$i}) {
+            a {
+              &:before {
+                background-image:url("../images/icon/lecture_lnb_icon0#{$i}.png");
+              }
+            }
+          }  
+        }
+      }
+    }
+  }
+  > .lecture-contents {
+    flex:1;
+    min-height:100%;
+  }
+}
+
+// mypage
+.mypage-wrap {
+  display:flex;
+  border:1px solid #e3e3e3;
+  background-color:#fff;
+
+  // mypage-lnb
+  .mypage-lnb {
+    width:275px;
+    padding:0 0 50px 0;
+    border-right:1px solid #e3e3e3;
+    .user {
+      padding:33px 0;
+      text-align:center;
+      .image {
+        width:72px;
+        height:72px;
+        margin:0 auto;
+        border-radius: 50%;
+        overflow: hidden;
+        img {
+          width:100%;
+        }
+      }
+      .greeting {
+        margin:10px 0;
+        color:#343434;
+        font-size:rem(18);
+        font-weight: 500;
+      }
+      .date {
+        color:#999;
+        font-size:rem(12);
+        font-weight: 500;
+        strong {
+          margin-left:5px;
+          color:#343434;
+          font-weight: 500;
+        }
+      }
+    }
+    .list {
+      li {
+        a {
+          position:relative;
+          display:block;
+          height:58px;
+          line-height:58px;
+          padding:0 0 0 88px;
+          color:#000;
+          font-size:rem(15);
+          font-weight:500;
+          &:before {
+            content:'';
+            display:block;
+            position:absolute;
+            top:50%;
+            left:49px;
+            width:20px;
+            height:20px;
+            transform:translateY(-50%);
+            background-repeat: no-repeat;
+            background-position: center center;
+          }
+          &.active {
+            color:#fff;
+            font-weight:700;
+            background-color:#ff5a00;
+          }
+        }
+
+        @for $i from 1 to 8 {
+          &:nth-child(#{$i}) {
+            a {
+              &:before {
+                background-image:url("../images/icon/mypage_lnb_icon0#{$i}_off.png");
+              }
+              &.active:before {
+                background-image:url("../images/icon/mypage_lnb_icon0#{$i}_on.png");
+              }
+            }
+          }  
+        }
+
+      }
+      
+    }
+  }
+  // mypage-contents
+  .mypage-contents {
+    flex:1;
+    padding:55px 40px 50px 48px;
   }
 }

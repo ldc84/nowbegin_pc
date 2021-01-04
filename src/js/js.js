@@ -1,14 +1,26 @@
+var body = $('body');
+var layer = $('.layer');
+var layerWrap = layer.find('.layer-wrap');
+
+// layer open func
+function layerOpen(page, size){
+  body.addClass('over-hidden');
+  layerWrap.load(page);
+  if(size) layerWrap.addClass(size);
+  layer.addClass('show');
+  setTimeout(function(){
+    layerWrap.addClass('move');
+  },30);
+}
+
 (function ($) {
 
   // header
   $(function(){
-    var body = $('body');
     var header = $('#header');
     var searchBtn = header.find('.search button');
     var mypageBtn = header.find('.mypage a');
     var alrimBtn = header.find('.alert a');
-    var layer = $('.layer');
-    var layerWrap = layer.find('.layer-wrap');
 
     // search open
     searchBtn.on('click', function(){
@@ -68,20 +80,9 @@
 
     // 알림 오픈
     alrimBtn.on("click", function(){
-      layerOpen('../html/pop_alrim.html', 'layer-sm');
+      layerOpen('../html/pop_alrim_list.html', 'layer-alrim');
       return false;
     });
-
-    // layer open func
-    function layerOpen(page, size){
-      body.addClass('over-hidden');
-      layerWrap.load(page);
-      if(size) layerWrap.addClass(size);
-      layer.addClass('show');
-      setTimeout(function(){
-        layerWrap.addClass('move');
-      },30);
-    }
 
     // ese key event
     $(document).keyup(function(e) {
@@ -99,11 +100,64 @@
       layer.removeClass('show');
       body.removeClass('over-hidden');
       layerWrap.empty();
-      layerWrap.removeClass('move layer-sm');
+      layerWrap.attr('class', 'layer-wrap')
+      // layerWrap.removeClass('move layer-sm layer-alrim');
       return false;
     });
   });
 
+  // tab
+  $(function(){
+
+    $(document).on('click', '.tab-type-2 a, .tab-type-4 a', function(){
+      var $this = $(this);
+      var $href = $this.attr('href');
+      var $parent = $this.parent('li');
+
+      $parent.siblings('li').find('a').removeClass('active');
+      $this.addClass('active');
+
+      $($href).show();
+      $($href).siblings().hide();
+      
+      return false;
+    });
+
+    $(document).on('click', '.tab-type-3 a', function(){
+      var $this = $(this);
+      var $href = $this.attr('href');
+      var $parent = $this.parent('li');
+
+      $parent.siblings('li').removeClass('active');
+      $parent.addClass('active');
+
+      $($href).fadeIn(250);
+      $($href).siblings().hide();
+      
+      return false;
+    });
+    
+  });
+
+  // faq
+  $(function(){
+
+    $(document).on('click', '.faq-list a, .faq-list-2 a', function(){
+      var $this = $(this);
+      var $parent = $this.parent('li');
+      var spd = 250;
+
+      $parent.siblings('li').removeClass('active');
+      $parent.toggleClass('active');
+
+      $this.siblings('.answer').stop().slideToggle(spd);
+      $parent.siblings('li').find('.answer').stop().slideUp(spd);
+      
+      return false;
+    });
+    
+  });
+  
   // main
   $(function(){
       
@@ -140,6 +194,31 @@
         });
       });
     }
+  });
+
+  // lecture
+  $(function(){
+      
+    if($('#wrap').hasClass('lecture')){
+      var watching = $('.watching');
+      var btnChat = $('.btn-chat');
+
+      btnChat.on('click', function(){
+        watching.toggleClass('with-chat');
+        return false;
+      });
+    }
+  });
+
+  // mypage
+  $(function(){
+      
+    var btnLeave = $('.btn-leave');
+
+    btnLeave.on('click', function(){
+      layerOpen('../html/pop_join_leave.html');
+      return false;
+    });
   });
   
 

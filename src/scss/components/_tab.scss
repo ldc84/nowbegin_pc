@@ -38,3 +38,111 @@
     }
   }
 }
+// tab-type-2
+.tab-type-2 {
+  display:flex;
+  border-bottom:1px solid #d1d1d1;
+  li {
+    width:50%;
+    a {
+      position:relative;
+      display:block;
+      height:34px;
+      line-height:34px;
+      color:#000;
+      font-size:rem(15);
+      text-align:center;
+      &.active {
+        color:#ff5500;
+        &:after {
+          content:'';
+          display:block;
+          position:absolute;
+          bottom:-1px;
+          left:0;
+          right:0;
+          height:2px;
+          background-color:#ff5500;
+        }
+      }
+    }
+  }
+}
+
+// tab-type-3
+.tab-type-3 {
+  display:flex;
+  margin-bottom:65px;
+  padding:0 1px;
+  border-bottom:1px solid #000;
+  li {
+    width:206px;
+    a {
+      display:block;
+      height:58px;
+      line-height:58px;
+      margin:0 -1px;
+      color:#5a5a5a;
+      font-size:rem(15);
+      font-weight:500;
+      background-color:#fff;
+      border:1px solid #d6d6d6;
+      border-bottom:none;
+      text-align:center;
+    }
+    &.active {
+      a {
+        position:relative;
+        margin:0 -1px;
+        color:#000;
+        border-color:#000;
+        &:after {
+          content:'';
+          display:block;
+          position:absolute;
+          bottom:-1px;
+          left:0;
+          right:0;
+          height:1px;
+          background-color:#fff;
+        }
+      }
+    }
+  }
+  &.type-1 {
+    li {
+      width:238px;
+    }
+  }
+}
+
+// tab-type-4
+.tab-type-4 {
+  display:flex;
+  padding-left:1px;
+  li {
+    flex:1;
+    margin-left:-1px;
+    a {
+      display:block;
+      height:58px;
+      line-height:56px;
+      margin:0 -1px;
+      padding-top:1px;
+      color:#5a5a5a;
+      font-size:rem(15);
+      font-weight:500;
+      background-color:#fff;
+      border:1px solid #d9d9d9;
+      text-align:center;
+      &.active {
+        position:relative;
+        margin:0 -1px;
+        padding-top:0;
+        color:#000;
+        border-color:#000;
+        border-width:2px;
+      }
+    }
+  }
+}

@@ -1,0 +1,210 @@
+<!-- @@master = /template/master.html {"title":""} -->
+
+<!-- @@block = contents -->
+<div class="contents-box">
+  
+  <h2 class="title-type-2">
+    수강신청
+  </h2>
+
+  <!-- contents-inner -->
+  <div class="contents-inner">
+    
+    <div class="apply-box-1">
+      
+      <div>
+        <h3 class="title-type-3 mt-1">신청내역</h3>
+        <div class="tb-data-1">
+          <table>
+            <caption>신청내역 표</caption>
+            <colgroup>
+              <col width="30%">
+              <col width="*">
+              <col width="15%">
+              <col width="15%">
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">클래스</th>
+                <th scope="col">수강일정</th>
+                <th scope="col">판매금액</th>
+                <th scope="col">할인금액</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>VIVIA 걸스 힙합</td>
+                <td>2020.11.17 ~ 2020.12.17 (주 2회/ 총 10회)</td>
+                <td>120,000</td>
+                <td><strong class="point-1">100,000</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 class="title-type-3 mt-1">할인정보</h3>
+        <div class="tb-data-2">
+          <table>
+            <caption>할인정보 표</caption>
+            <colgroup>
+              <col width="*">
+              <col width="40%">
+              <col width="40%">
+            </colgroup>
+            <tbody>
+              <tr>
+                <th scope="row">할인쿠폰 사용</th>
+                <td class="write">
+                  <input type="text" readonly>
+                </td>
+                <td class="btn">
+                  <button type="button" class="button xsmall-3 color-4 btn-coupon">쿠폰 조회 및 적용</button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">포인트 사용</th>
+                <td class="write">
+                  <input type="text" placeholder="포인트를 입력하세요">
+                </td>
+                <td>
+                  포인트 (잔여 5,000P)
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 class="title-type-3 mt-1">결제수단선택</h3>
+        <div class="apply-box-2">
+          <div class="btn-box-1">
+            <div class="two">
+              <button type="button" class="button block color-2">간편결제</button>
+              <button type="button" class="button block color-4">일반결제</button>
+            </div>
+          </div>
+          <div class="pay-chioce">
+            <div style="display:block;">
+              <div class="radiobox-1">
+                <input type="radio" name="pu-pay1" id="pu-pay1-1" checked>
+                <label for="pu-pay1-1">네이버페이</label>
+              </div>
+              <div class="radiobox-1">
+                <input type="radio" name="pu-pay1" id="pu-pay1-2">
+                <label for="pu-pay1-2">카카오페이</label>
+              </div>
+              <div class="radiobox-1">
+                <input type="radio" name="pu-pay1" id="pu-pay1-3">
+                <label for="pu-pay1-3">페이코</label>
+              </div>
+            </div>
+            <div>
+              <div class="radiobox-1">
+                <input type="radio" name="pu-pay2" id="pu-pay2-1" checked>
+                <label for="pu-pay2-1">신용카드</label>
+              </div>
+              <div class="radiobox-1">
+                <input type="radio" name="pu-pay2" id="pu-pay2-2">
+                <label for="pu-pay2-2">휴대폰결제</label>
+              </div>
+              <div class="radiobox-1">
+                <input type="radio" name="pu-pay2" id="pu-pay2-3">
+                <label for="pu-pay2-3">무통장입금</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="title-type-3 mt-1">최종 결제 정보</h3>
+        <div class="tb-data-3">
+          <table>
+            <caption>최종결제정보 표</caption>
+            <colgroup>
+              <col width="50%">
+              <col width="*">
+            </colgroup>
+            <tfoot>
+              <tr>
+                <th scope="row">총결제 금액</th>
+                <td>292,000원</td>
+              </tr>
+            </tfoot>
+            <tbody>
+              <tr>
+                <th scope="row">상품 금액</th>
+                <td>350,000원</td>
+              </tr>
+              <tr>
+                <th scope="row">기본 할인</th>
+                <td>-50,000원</td>
+              </tr>
+              <tr>
+                <th scope="row">쿠폰사용</th>
+                <td>-0원</td>
+              </tr>
+              <tr>
+                <th scope="row">포인트 사용</th>
+                <td>-8,000원</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="btn-box-1">
+          <button type="button" class="button block color-5 btn-pay">결제하기</button>
+          <!-- 활성화시 
+            <button type="button" class="button block color-1">결제하기</button> 
+          -->
+        </div>
+      </div>
+
+    </div>
+    
+  </div>
+  <!-- //contents-inner -->
+
+<script>
+  window.addEventListener('load', function(){
+    $(function(){
+
+      var payBtn = $('.btn-box-1 > div button');
+      var payBox = $('.pay-chioce > div');
+      
+      // 결제수단 선택
+      payBtn.on('click', function(){
+        var $this = $(this);
+        var idx = $this.index();
+        
+        $this.removeClass('color-4').addClass('color-2');
+        $this.siblings().removeClass('color-2').addClass('color-4');
+
+        payBox.eq(idx).show();
+        payBox.eq(idx).siblings().hide();
+        return false;
+      });
+
+      // coupon popup
+      var couponBtn = $('.btn-coupon');
+      couponBtn.on('click', function(){
+        layerOpen('./pop_coupon_list.html', 'layer-lg');
+        return false;
+      });
+
+      // 완료 팝업
+      function paySuccess(){
+        layerOpen('./pop_payment.html', 'layer-sm');
+      }
+      $('.btn-pay').on('click', function(){
+        paySuccess();
+        return false;
+      });
+      // 완료 팝업 확인시
+      $(document).on('click', '.payment-wrap .layer-close', function(){
+        console.log('확인 버튼 클릭');
+        return false;
+      });
+
+    });
+  });
+</script>
+
+</div>
+<!-- @@close -->
