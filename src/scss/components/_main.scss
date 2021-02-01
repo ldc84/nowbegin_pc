@@ -95,10 +95,13 @@
           &.slick-next {
             background:url("../images/icon/slide_arrow01_right.png") no-repeat center center;
           }
-          &.slick-disabled {
-            opacity: 0.5;
-          }
+          // &.slick-disabled {
+          //   opacity: 0.5;
+          // }
         }
+      }
+      .slick-track {
+        margin-right:0;
       }
       .slick-slide {
         a {

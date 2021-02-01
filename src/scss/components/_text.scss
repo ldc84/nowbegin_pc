@@ -17,6 +17,27 @@
   }
 }
 
+.title-box-3 {
+  position:relative;
+  display:flex;
+  .coment {
+    margin:6px 0 0 30px;
+    color:#161616;
+    font-size:rem(15);
+  }
+  .dday {
+    position:absolute;
+    top:6px;
+    right:0;
+    color:#161616;
+    font-size:rem(15);
+    strong {
+      color:$color-point;
+      font-weight:700;
+    }
+  }
+}
+
 // title
 .title-type-1 {
   margin-bottom:15px;

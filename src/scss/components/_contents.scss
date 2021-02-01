@@ -14,6 +14,7 @@
     }
   }
   .con-summary {
+    position:relative;
     width:553px;
     padding:0 0 0 20px;
     .summary {
@@ -23,6 +24,34 @@
         height:121px;
         border-radius: 50%;
         overflow: hidden;
+      }
+      .usersel-box {
+        position:absolute;
+        top:9px;
+        right:3px;
+        display:flex;
+        a {
+          width:27px;
+          height:26px;
+          margin-left:20px;
+          background-repeat: no-repeat;
+          background-position:center center;
+          &.favorite {
+            background-image:url("../images/icon/icon_detail_favorite_off.png");
+            &.active {
+              background-image:url("../images/icon/icon_detail_favorite_on.png");
+            }
+          }
+          &.like {
+            background-image:url("../images/icon/icon_detail_like_off.png");
+            &.active {
+              background-image:url("../images/icon/icon_detail_like_on.png");
+            }
+          }
+          &.sns {
+            background-image:url("../images/icon/icon_detail_sns.png");
+          }
+        }
       }
       .tag {
         margin-top:35px;
@@ -235,10 +264,163 @@
     height:100%;
     background-color:#fff;
     .movie {
+      position:relative;
       flex:1;
+      display:flex;
+      background-color:#000;
       iframe {
         width:100%;
         height:100%;
+      }
+      .scene {
+        flex:1;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        .camera-off {
+          text-align:center;
+          p {
+            margin-top:23px;
+            color:#fff;
+            font-size:rem(30);
+            font-weight:700;
+            line-height:1.2;
+            opacity: 0.3;
+          }
+        }
+      }
+      .camera-controls {
+        position:absolute;
+        top:25px;
+        right:20px;
+        display:flex;
+        align-items: center;
+        > a {
+          width:29px;
+          height:26px;
+          margin-left:25px;
+          background-repeat:no-repeat;
+          background-position: center center;
+          &.camera {
+            &.on {
+              background-image: url("../images/icon/icon_camera_on.png");
+            }
+            &.off {
+              background-image: url("../images/icon/icon_camera_off.png");
+            }
+          }
+          &.divide {
+            background-image: url("../images/icon/icon_divide.png");
+          }
+          &.out {
+            background-image: url("../images/icon/icon_out02.png");
+          }
+        }
+        .num {
+          width:19px;
+          height:17px;
+          line-height:15px;
+          color:#fff;
+          font-size:rem(10);
+          border:1px solid #fff;
+          text-align:center;
+        }
+      }
+      .controls {
+        position:absolute;
+        bottom:0;
+        left:0;
+        right:0;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content: space-between;
+        height:44px;
+        padding:0 4px;
+        .progressbar {
+          width:100%;
+          height:3px;
+          background-color:#858585;
+          .timer {
+            height:3px;
+            background-color:#f12b24;
+          }
+        }
+        .play-volume {
+          display:flex;
+          align-items: center;
+          height:36px;
+          > a {
+            width:21px;
+            height:21px;
+            margin:0 10px;
+            background-repeat: no-repeat;
+            background-position:center center;
+            &.play {
+              background-image: url("../images/icon/video_icon_play.png");
+            }
+            &.pause {
+              background-image: url("../images/icon/video_icon_pause.png");
+            }
+            &.volume {
+              background-image: url("../images/icon/video_icon_volume.png");
+            }
+          }
+          .time {
+            margin-top:-2px;
+            color:#fff;
+            font-size:rem(10);
+            font-weight:700;
+          }
+        }
+        .setting-full {
+          display:flex;
+          align-items: center;
+          height:36px;
+          > a {
+            width:23px;
+            height:21px;
+            margin:0 8px;
+            background-repeat: no-repeat;
+            background-position:center center;
+            &.reverse {
+              background-image:url("../images/icon/video_icon_reverse.png");
+            }
+            &.setting {
+              background-image:url("../images/icon/video_icon_setting.png");
+            }
+            &.full {
+              width:25px;
+              background-image:url("../images/icon/video_icon_full.png");
+            }
+          }
+        }
+      }
+      .coment-box {
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%, -50%);
+        text-align:center;
+        .text-1 {
+          color:#fff;
+          font-size:rem(28);
+          font-weight:700;
+          line-height:1.6;
+        }
+        .text-2 {
+          margin-top:15px;
+          color:#747474;
+          font-size:rem(28);
+        }
+        .text-time {
+          margin-top:15px;
+          color:$color-point;
+          font-size:rem(28);
+          font-weight:700;
+        }
+        .btn {
+          margin-top:30px;
+        }
       }
     }
     .info {
@@ -264,11 +446,48 @@
         font-weight:500;
         line-height:1.2;
       }
-      .name {
+      .name-member {
+        display:flex;
+        align-items: center;
         margin-top:15px;
-        color:#525252;
-        font-size:rem(16);
-        line-height:1.2;
+        .name {
+          color:#525252;
+          font-size:rem(16);
+          line-height:1.2;
+        }
+        .mem {
+          margin-left:40px;
+          padding:0 0 0 28px;
+          color:#000;
+          font-size:rem(14);
+          line-height:20px;
+          background:url("../images/icon/icon_member02.png") no-repeat 0 center;
+          background-size:16px auto;
+          strong {
+            color:$color-point;
+          }
+        }
+        .date-hit {
+          margin-left:30px;
+          color:#000;
+          font-size:rem(16);
+          line-height:1.2;
+          span + span {
+            position: relative;
+            margin-left:6px;
+            padding-left:12px;
+            &:before {
+              content:'';
+              display:block;
+              position:absolute;
+              top:5px;
+              left:0;
+              width:1px;
+              height:16px;
+              background-color:#888;
+            }
+          }
+        }
       }
       .out-mem-like {
         position:absolute;
@@ -305,35 +524,41 @@
           }
         }
       }
+      .out-list {
+        position:absolute;
+        top:35px;
+        right:25px;
+      }
     }
   }
-  .chatting {
-    width:0;
-    transition: all .3s ease-in-out;
-  }
 
-  .btn-chat {
-    display:block;
-    position:absolute;
-    top:0;
-    right:0;
-    width:70px;
-    height:60px;
-    background:url("../images/icon/btn_arrow03_left.png") no-repeat center center;
-    transition: right .3s ease-in-out;
-  }
+  // .chatting {
+  //   width:0;
+  //   transition: all .3s ease-in-out;
+  // }
+
+  // .btn-chat {
+  //   display:block;
+  //   position:absolute;
+  //   top:0;
+  //   right:0;
+  //   width:70px;
+  //   height:60px;
+  //   background:url("../images/icon/btn_arrow03_left.png") no-repeat center center;
+  //   transition: right .3s ease-in-out;
+  // }
 
 
-  &.with-chat {
-    .chatting {
-      width:340px;
-    }
+  // &.with-chat {
+  //   .chatting {
+  //     width:340px;
+  //   }
     
-    .btn-chat {
-      right:270px;
-      background-image:url("../images/icon/btn_arrow03_right.png");
-    }
-  }
+  //   .btn-chat {
+  //     right:270px;
+  //     background-image:url("../images/icon/btn_arrow03_right.png");
+  //   }
+  // }
 }
 
 // lecture _ board
@@ -363,7 +588,7 @@
     .user {
       display:flex;
       align-items: center;
-      margin-top:5px;
+      margin-top:15px;
       font-size:rem(15);
       .image {
         width:29px;
@@ -375,7 +600,6 @@
         }
       }
       .name {
-        margin-left:10px;
         font-weight:700;
       }
       .date {
@@ -398,9 +622,6 @@
     .title-user {
       border-bottom:none;
       background-color:#fff;
-      .user {
-        margin-top:15px;
-      }
     }
     .con {
       padding:10px 40px 30px;

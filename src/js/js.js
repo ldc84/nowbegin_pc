@@ -34,11 +34,20 @@ function layerOpen(page, size){
     // mypageBtn _ 로그인 안되어있을 경우
     // 로그인 팝업 오픈
     mypageBtn.on('click', function(){
-      if(!loginState){
+      var $this = $(this);
+      var parent = $this.parent('li');
+      if(!$this.hasClass('in-login')){
         layerOpen('../html/pop_login.html');
-        return false;
+      }else {
+        parent.toggleClass('active');
       }
+      return false;
 
+    });
+
+    $('.user-layer').on('mouseleave', function(){
+      var parent = $(this).parent('li');
+      parent.removeClass("active");
     });
 
     // 로그인 _ 회원가입 / 아이디찾기/ 비번찾기
@@ -167,6 +176,8 @@ function layerOpen(page, size){
         arrows: false,
         dots: true,
         appendDots: $('.dots-box'),
+        autoplay: true,
+        autoplaySpeed: 3000,
       });
       
       // live list

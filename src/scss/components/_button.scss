@@ -88,6 +88,10 @@ input[type='submit'] {
     color:#fff;
     background-color:#000;
   }
+  &.color-6 {
+    color:#3e3e3e;
+    background-color:#fff;
+  }
 
   // border
   &.border-1 {
@@ -100,6 +104,15 @@ input[type='submit'] {
   }
 
   // size
+  &.large {
+    min-width:232px;
+    height:61px;
+    padding:0 45px;
+    font-size:rem(21);
+    font-weight:500;
+    border-radius: 4px;
+  }
+
   &.medium {
     height:51px;
     line-height:49px;

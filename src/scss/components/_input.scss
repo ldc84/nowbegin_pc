@@ -117,6 +117,18 @@
     }
   }
 
+  &.form-timer {
+    position:relative;
+    .time {
+      position:absolute;
+      top:50%;
+      right:16px;
+      color:#000;
+      font-size:rem(15);
+      transform: translateY(-50%);
+    }
+  }
+
   ::placeholder {
     color:#aaa;
   }
@@ -197,9 +209,10 @@
 
 // coment
 .form-text-coment-1 {
-  margin:-5px 0 0 7px;
+  margin:-5px 0 0 4px;
   color:#919191;
   font-size:rem(14);
+  letter-spacing:-1.5px;
 }
 .form-text-coment-2 {
   color:#979797;
