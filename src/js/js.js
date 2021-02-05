@@ -19,7 +19,7 @@ function layerOpen(page, size){
   $(function(){
     var header = $('#header');
     var searchBtn = header.find('.search button');
-    var mypageBtn = header.find('.mypage a');
+    var mypageBtn = header.find('.mypage > a');
     var alrimBtn = header.find('.alert a');
 
     // search open
