@@ -1346,7 +1346,9 @@ input[type='submit'] {
         top: 114px; }
 
 .calendar {
-  margin-top: 65px; }
+  margin-top: 65px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #000; }
   .calendar .calendar-month {
     display: flex;
     align-items: center;
@@ -2531,6 +2533,10 @@ input[type='submit'] {
     padding: 65px 70px 50px; }
     .detail-content .con-inner > div {
       display: none; }
+    .detail-content .con-inner .class-intro {
+      padding: 50px 0;
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000; }
 
 .lineup-sel {
   display: flex;
